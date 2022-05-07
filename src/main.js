@@ -4,7 +4,6 @@ import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
 import '@/styles/index.scss' // global css
 
@@ -14,7 +13,12 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
+// 引入列表循环滚动插件
+import scroll from 'vue-seamless-scroll'
 
+// 引入echarts
+import * as echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -28,11 +32,9 @@ if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
-// set ElementUI lang to EN
-Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
-// Vue.use(ElementUI)
-
+Vue.use(ElementUI)
+Vue.use(scroll)
 Vue.config.productionTip = false
 
 new Vue({

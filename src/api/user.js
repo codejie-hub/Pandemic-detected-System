@@ -1,8 +1,8 @@
 import request from '@/utils/request'
-
+let api='/api'
 export function login(data) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: api + '/login',
     method: 'post',
     data
   })
